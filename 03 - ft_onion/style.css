@@ -1,0 +1,68 @@
+.rap-text, h1 {
+  text-align: center;
+  margin: 20px auto;
+}
+
+h1 {
+  font-size: 100px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.rap-text {
+  white-space: pre-wrap;
+}
+
+.image {
+  width: 300px; 
+  height: auto;
+  margin: 10px auto;
+  display: block;
+}
+
+.centered-image {
+  display: block;
+  margin: 20px auto; 
+  width: 500px; 
+  height: auto;
+}
+
+.subtitle {
+  text-align: center;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2em;
+  margin-top: 20px;
+}
+
+.farewell {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 20px;
+}
+
+.large-image {
+  height: 300px;
+  width: auto; 
+  object-fit: cover;
+}
+
+.bigzizi {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  color: red;
+  font-weight: 520;
+  font-size: 3em;
+}
+
+.center-link {
+  text-align: center;
+}
