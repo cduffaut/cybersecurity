@@ -1,9 +1,0 @@
-# défini le chemin pour stocker les informations
-# liées au service caché
-HiddenServiceDir /var/lib/tor/hidden_service/
-
-# le port virtuel offre un service accessible uniquement via le réseau Tor
-# ce qui renforce l’anonymat
-# Tor écoute sur le port virtuel 80
-# et renvoie vers le port local 80 (ou NGINX écoute)
-HiddenServicePort 80 127.0.0.1:80
