@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+
+  ftp_server:
+    build: .
+    container_name: ftp_server
+    platform: linux/arm64
+    ports:
+      - "21:21" # map port container/hôte port (FTP par défaut)
+    volumes:
+      - ./server:/app/ftpuser # copie tout le contenu du rep courant dans le file /app du container
+    networks:
+      - ft_network
+    
+  ftp_client:
+    image: jlesage/filezilla
+    container_name: ftp_client
+    platform: linux/arm64
+    volumes:
+      - ./client:/app
+    networks:
+      - ft_network
+    ports:
+      - "5800:5800"
+    depends_on:
+      - ftp_server
+    restart: unless-stopped
+  
+  inquisitor:
+    build: program/. #construire l'image Docker à partir du Dockerfile situé dans le répertoire courant
+    container_name: inquisitor
+    volumes:
+      - .:/app # copie tout le contenu du rep courant dans le file /app du container
+    networks:
+      - ft_network
+    cap_add:
+      - NET_ADMIN # necessaire pour faire des operations reseau de bas niveau
+    privileged: true
+    platform: linux/arm64
+    depends_on:
+      - ftp_server
+
+networks:
+  ft_network:
